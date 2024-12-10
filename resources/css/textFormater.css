@@ -1,0 +1,11 @@
+.wrap-text {
+    white-space: normal; /* Permite el salto de línea automático */
+    word-wrap: break-word; /* Divide las palabras largas si exceden el tamaño */
+    max-width: 200px; /* Establece un ancho máximo para la celda */
+    overflow-wrap: anywhere; /* Asegura que las palabras muy largas también se ajusten */
+}
+.one-char{
+    text-align: center;
+    align-items: center;
+    align-self: center;
+}
