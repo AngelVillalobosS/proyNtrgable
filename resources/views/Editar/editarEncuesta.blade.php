@@ -152,12 +152,12 @@
                     <h5>Selecciona una Categoria</h5>
                 </th>
                 <td>
-                <select  class="form-select" name = 'categorie'>
+                <select class="form-select" name='id_categorie'>
                     <!-- Opción seleccionada actual -->
                     <option value='{{$consulta->id_categorie}}'>{{$consulta->category_name}}</option>
                     <!-- Opciones disponibles -->
                     @foreach($categories as $cats)
-                    <option value = '{{$cats->id_content}}'>{{$cats->categorie}}</option>
+                    <option value = '{{$cats->id_categorie}}'>{{$cats->categorie}}</option>
                     @endforeach
                 </select>
                 </td>
@@ -215,13 +215,13 @@
             </tr>
             <tr>
                 <th>Sugerencias</th>
-                <td><input class="form-control" type="text" name="sugerencias" value="{{ $encuesta -> suggestions}}">
+                <td><input class="form-control" type="text" name="suggestions" value="{{ $encuesta -> suggestions}}">
                 </td>
             </tr>
             </tr>
             <tr>
                 <th>Comentarios para <br> desarolladores</th>
-                <td><input class="form-control" type="text" name="comentarios" value="{{ $encuesta -> dev_comments}}">
+                <td><input class="form-control" type="text" name="dev_comments" value="{{ $encuesta -> dev_comments}}">
                 </td>
             </tr>
             <tr class="default"></tr>

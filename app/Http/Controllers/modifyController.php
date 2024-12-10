@@ -12,7 +12,8 @@ class modifyController extends Controller
 {
     public function editSurvey($id_survey)
     {
-        // Busca una encuesta específica
+        if (Session::get('sesionidu')){
+            // Busca una encuesta específica
         $encuesta = anime_survey::where('id_survey', $id_survey)->first();
         $contents = contents::orderby('id_content', 'asc')->get();
         $consulta = \DB::select(" SELECT a.id_survey, a.name_per, a.a_pa, a.a_ma, a.year, a.sexo, a.happiness, 
@@ -42,6 +43,11 @@ class modifyController extends Controller
         ->with('contents', $contents)
         ->with('categories', $categories)
         ->with('consulta', $consulta[0]);
+        } else {
+            Session::flash('mensaje', "Es necesario loguearse antes de continuar");
+            return redirect()->route('login');
+    }
+        
     }
 
     public function saveEditedSurvey(Request $request)
@@ -67,8 +73,8 @@ class modifyController extends Controller
     $survey->id_content = $request->id_content;
     
     // Verificar si id_categorie está presente
-    if ($request->has('categorie') && $request->categorie !== null) {
-        $survey->categorie = $request->categorie;
+    if ($request->has('id_categorie') && $request->id_categorie !== null) {
+        $survey->id_categorie = $request->id_categorie;
     } else {
         // Maneja el caso en que id_categorie no esté presente
         // O asigna un valor predeterminado si es necesario
