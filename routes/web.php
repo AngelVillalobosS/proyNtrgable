@@ -5,6 +5,7 @@ use App\Http\controllers\encuestaAnimeController;
 use App\Http\Controllers\AnimeController;
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\EpisodioController;
+use App\Http\Controllers\jqueryController;
 use App\Http\Controllers\logincontroller;
 use App\Http\Controllers\modifyController;
 use App\Http\Controllers\reportController;
@@ -38,3 +39,14 @@ Route::post('enviarEncuesta', [encuestaAnimeController::class, 'enviarEncuesta']
 Route::POST('guardandoDatos', [modifyController::class, 'saveEditedSurvey'])->name('guardarEdicion');
     // Loging
 Route::POST('validar',[logincontroller::class,'validar'])->name('validar');
+
+// Jquery
+Route::get('jqueryE1', [jqueryController::class, 'ejemplo1'])->name('JQ01');
+Route::get('operacion', [jqueryController::class, 'operacion'])->name('operacion');
+Route::get('calculo', [jqueryController::class, 'calculo'])->name('calculo');
+
+// JQ Ejercicio 01
+Route::get('ejercicio1', [jqueryController::class, 'ejercicio1'])->name('ejercicio1');
+Route::get('datospersona', [jqueryController::class, 'datospersona'])->name('datospersona');
+Route::get('ejercicio3', [jqueryController::class, 'ejercicio3'])->name('ejercicio3');
+Route::get('cargadescuentos', [jqueryController::class, 'cargadescuentos'])->name('cargadescuentos');
